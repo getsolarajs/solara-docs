@@ -1,0 +1,28 @@
+{
+  "id": "guides/creating-embeds",
+  "title": "Creating Embeds",
+  "description": "Discord Embeds allow you to create richly formatted messages. Solara.js provides a set of functions to easily build embeds within your command's code block.",
+  "source": "@site/docs/guides/creating-embeds.md",
+  "sourceDirName": "guides",
+  "slug": "/guides/creating-embeds",
+  "permalink": "/docs/guides/creating-embeds",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/getsolarajs/solara-js-docs/tree/main/docs/guides/creating-embeds.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1,
+    "title": "Creating Embeds"
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Using Variables",
+    "permalink": "/docs/core-concepts/variables"
+  },
+  "next": {
+    "title": "Creating Custom Functions",
+    "permalink": "/docs/guides/custom-functions"
+  }
+}

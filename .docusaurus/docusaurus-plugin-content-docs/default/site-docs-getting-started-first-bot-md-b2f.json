@@ -1,0 +1,29 @@
+{
+  "id": "getting-started/first-bot",
+  "title": "First Bot",
+  "description": "Let's create a simple \"ping\" bot using Solara.js. This example demonstrates the core file structure and the function-based scripting approach.",
+  "source": "@site/docs/getting-started/first-bot.md",
+  "sourceDirName": "getting-started",
+  "slug": "/first-bot",
+  "permalink": "/docs/first-bot",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/getsolarajs/solara-js-docs/tree/main/docs/getting-started/first-bot.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2,
+    "slug": "/first-bot",
+    "title": "First Bot"
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Installation",
+    "permalink": "/docs/installation"
+  },
+  "next": {
+    "title": "Function Syntax & Execution",
+    "permalink": "/docs/core-concepts/function-syntax"
+  }
+}

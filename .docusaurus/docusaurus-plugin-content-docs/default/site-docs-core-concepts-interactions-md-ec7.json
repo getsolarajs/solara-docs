@@ -1,0 +1,28 @@
+{
+  "id": "core-concepts/interactions",
+  "title": "Handling Interactions",
+  "description": "Solara.js provides seamless ways to handle Discord Interactions beyond slash commands, including Button Clicks, Select Menu Choices, and Modal Submissions.",
+  "source": "@site/docs/core-concepts/interactions.md",
+  "sourceDirName": "core-concepts",
+  "slug": "/core-concepts/interactions",
+  "permalink": "/docs/core-concepts/interactions",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/getsolarajs/solara-js-docs/tree/main/docs/core-concepts/interactions.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3,
+    "title": "Handling Interactions"
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Using Functions",
+    "permalink": "/docs/core-concepts/commands"
+  },
+  "next": {
+    "title": "Handling Events",
+    "permalink": "/docs/core-concepts/events"
+  }
+}

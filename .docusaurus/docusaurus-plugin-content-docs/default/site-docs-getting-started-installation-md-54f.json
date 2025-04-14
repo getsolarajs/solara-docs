@@ -1,0 +1,29 @@
+{
+  "id": "getting-started/installation",
+  "title": "Installation",
+  "description": "Before you begin, ensure you have Node.js v16.9.0 or higher installed on your system. This is a requirement for Discord.js v14, which Solara.js relies on.",
+  "source": "@site/docs/getting-started/installation.md",
+  "sourceDirName": "getting-started",
+  "slug": "/installation",
+  "permalink": "/docs/installation",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/getsolarajs/solara-js-docs/tree/main/docs/getting-started/installation.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1,
+    "slug": "/installation",
+    "title": "Installation"
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Introduction",
+    "permalink": "/docs/intro"
+  },
+  "next": {
+    "title": "First Bot",
+    "permalink": "/docs/first-bot"
+  }
+}

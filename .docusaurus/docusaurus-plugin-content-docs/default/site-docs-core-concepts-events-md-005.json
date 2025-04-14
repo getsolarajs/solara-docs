@@ -1,0 +1,28 @@
+{
+  "id": "core-concepts/events",
+  "title": "Handling Events",
+  "description": "While Solara.js excels at simplifying the handling of command-related events like messageCreate (for prefix commands) and interactionCreate (for slash commands, buttons, etc.) through its command file structure, you might need to react to other Discord Gateway events directly (e.g., a user joining the server, a message being deleted, etc.).",
+  "source": "@site/docs/core-concepts/events.md",
+  "sourceDirName": "core-concepts",
+  "slug": "/core-concepts/events",
+  "permalink": "/docs/core-concepts/events",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/getsolarajs/solara-js-docs/tree/main/docs/core-concepts/events.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2,
+    "title": "Handling Events"
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Handling Interactions",
+    "permalink": "/docs/core-concepts/interactions"
+  },
+  "next": {
+    "title": "Using Variables",
+    "permalink": "/docs/core-concepts/variables"
+  }
+}

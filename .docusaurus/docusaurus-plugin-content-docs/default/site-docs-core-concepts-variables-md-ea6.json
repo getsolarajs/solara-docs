@@ -1,0 +1,28 @@
+{
+  "id": "core-concepts/variables",
+  "title": "Using Variables",
+  "description": "Solara.js provides built-in functions to store and retrieve temporary data during the execution of a command's code block. This is useful for holding intermediate values, results from functions, or user input for later use within the same command execution.",
+  "source": "@site/docs/core-concepts/variables.md",
+  "sourceDirName": "core-concepts",
+  "slug": "/core-concepts/variables",
+  "permalink": "/docs/core-concepts/variables",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/getsolarajs/solara-js-docs/tree/main/docs/core-concepts/variables.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 5,
+  "frontMatter": {
+    "sidebar_position": 5,
+    "title": "Using Variables"
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Handling Events",
+    "permalink": "/docs/core-concepts/events"
+  },
+  "next": {
+    "title": "Creating Embeds",
+    "permalink": "/docs/guides/creating-embeds"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "reference/function-list",
+  "title": "Function List",
+  "description": "This page lists the built-in functions available in Solara.js, categorized for easier navigation.",
+  "source": "@site/docs/reference/function-list.md",
+  "sourceDirName": "reference",
+  "slug": "/reference/function-list",
+  "permalink": "/docs/reference/function-list",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/getsolarajs/solara-js-docs/tree/main/docs/reference/function-list.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1,
+    "title": "Function List"
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Creating Custom Functions",
+    "permalink": "/docs/guides/custom-functions"
+  }
+}

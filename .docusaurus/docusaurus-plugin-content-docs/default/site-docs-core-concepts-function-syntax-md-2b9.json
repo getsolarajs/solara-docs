@@ -1,0 +1,28 @@
+{
+  "id": "core-concepts/function-syntax",
+  "title": "Function Syntax & Execution",
+  "description": "The core of creating command logic in Solara.js involves using special functions within the code property of your command files. These functions start with a dollar sign ($) and handle various tasks, from retrieving data to building messages and controlling flow.",
+  "source": "@site/docs/core-concepts/function-syntax.md",
+  "sourceDirName": "core-concepts",
+  "slug": "/core-concepts/function-syntax",
+  "permalink": "/docs/core-concepts/function-syntax",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/getsolarajs/solara-js-docs/tree/main/docs/core-concepts/function-syntax.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1,
+    "title": "Function Syntax & Execution"
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "First Bot",
+    "permalink": "/docs/first-bot"
+  },
+  "next": {
+    "title": "Using Functions",
+    "permalink": "/docs/core-concepts/commands"
+  }
+}

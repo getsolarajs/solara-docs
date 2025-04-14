@@ -1,0 +1,56 @@
+/* src/components/HomepageFeatures/styles.module.css */
+.featuresSection {
+  padding: 5rem 0;
+  background-color: var(--ifm-background-surface-color);
+}
+
+.featureItem {
+  padding: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.featureContent {
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: var(--ifm-background-color);
+  height: 100%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.featureContent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 0;
+  background: var(--ifm-color-primary);
+  transition: height 0.3s ease;
+}
+
+.featureContent:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.featureContent:hover::before {
+  height: 100%;
+}
+
+.featureContent h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--ifm-color-primary-darker);
+}
+
+.featureContent p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ifm-font-color-base);
+  opacity: 0.8;
+}

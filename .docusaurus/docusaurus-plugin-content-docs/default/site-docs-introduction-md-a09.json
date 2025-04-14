@@ -1,0 +1,25 @@
+{
+  "id": "introduction",
+  "title": "Introduction",
+  "description": "Solara.js is a powerful yet intuitive framework built on Discord.js v14, designed to significantly simplify and accelerate the development of Discord bots.",
+  "source": "@site/docs/introduction.md",
+  "sourceDirName": ".",
+  "slug": "/intro",
+  "permalink": "/docs/intro",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/getsolarajs/solara-js-docs/tree/main/docs/introduction.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1,
+    "slug": "/intro",
+    "title": "Introduction"
+  },
+  "sidebar": "docsSidebar",
+  "next": {
+    "title": "Installation",
+    "permalink": "/docs/installation"
+  }
+}

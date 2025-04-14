@@ -1,0 +1,83 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/docs",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/docs",
+          "mainDocId": "introduction",
+          "docs": [
+            {
+              "id": "core-concepts/commands",
+              "path": "/docs/core-concepts/commands",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "core-concepts/events",
+              "path": "/docs/core-concepts/events",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "core-concepts/function-syntax",
+              "path": "/docs/core-concepts/function-syntax",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "core-concepts/interactions",
+              "path": "/docs/core-concepts/interactions",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "core-concepts/variables",
+              "path": "/docs/core-concepts/variables",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "getting-started/first-bot",
+              "path": "/docs/first-bot",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "getting-started/installation",
+              "path": "/docs/installation",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "guides/creating-embeds",
+              "path": "/docs/guides/creating-embeds",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "guides/custom-functions",
+              "path": "/docs/guides/custom-functions",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "introduction",
+              "path": "/docs/intro",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "reference/function-list",
+              "path": "/docs/reference/function-list",
+              "sidebar": "docsSidebar"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "docsSidebar": {
+              "link": {
+                "path": "/docs/intro",
+                "label": "Introduction"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": true
+    }
+  }
+}

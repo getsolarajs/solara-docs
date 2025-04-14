@@ -1,0 +1,28 @@
+{
+  "id": "guides/custom-functions",
+  "title": "Creating Custom Functions",
+  "description": "While Solara.js provides a wide array of built-in $functions, you might encounter situations requiring more complex logic, external API calls, or database interactions that aren't covered. Solara.js allows you to extend its functionality by creating your own custom functions.",
+  "source": "@site/docs/guides/custom-functions.md",
+  "sourceDirName": "guides",
+  "slug": "/guides/custom-functions",
+  "permalink": "/docs/guides/custom-functions",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/getsolarajs/solara-js-docs/tree/main/docs/guides/custom-functions.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3,
+    "title": "Creating Custom Functions"
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Creating Embeds",
+    "permalink": "/docs/guides/creating-embeds"
+  },
+  "next": {
+    "title": "Function List",
+    "permalink": "/docs/reference/function-list"
+  }
+}
