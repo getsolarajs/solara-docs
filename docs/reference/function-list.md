@@ -1,13 +1,15 @@
 ---
 sidebar_position: 1
 title: Function List
+id: function-list
+slug: /reference/function-list 
 ---
 
 # Function Reference
 
 This page lists the built-in functions available in Solara.js, categorized for easier navigation.
 
-**Note:** Arguments marked with `?` are optional. Default values are often implied or noted. Semicolons (`;`) separate arguments within brackets `[]`.
+**Note:** Arguments marked with `?` are optional. Default values are often implied or noted. Semicolons (`;`) separate arguments within brackets `[]`. Functions previously marked as OWNER ONLY still require the user invoking the command to be the bot owner. Functions previously marked as PLACEHOLDER might have limited or no functionality yet. Functions previously marked as SECURITY RISK should still be used with extreme caution.
 
 ## Core & Bot Info
 
@@ -17,27 +19,57 @@ This page lists the built-in functions available in Solara.js, categorized for e
 *   `$botAvatar`: Returns the bot's avatar URL.
 *   `$botPing`: Alias for `$ping`.
 *   `$uptime`: Returns the bot's uptime (ms).
-*   `$botToken`: Returns redacted bot token string. \[OWNER ONLY]
+*   `$botToken`: Returns redacted bot token string.
 *   `$botTags`: Returns semicolon-separated application tags.
-*   `$changeBotUsername[newUsername]`: Changes bot username. \[OWNER ONLY, Rate Limited]
-*   `$changeBotAvatar[imageURL]`: Changes bot avatar. \[OWNER ONLY, Rate Limited]
+*   `$changeBotUsername[newUsername]`: Changes bot username. (Rate Limited)
+*   `$changeBotAvatar[imageURL]`: Changes bot avatar. (Rate Limited)
 *   `$changeBotStatus[status;activityType;activityName;streamURL?]`: Changes bot presence. `status`: online/idle/dnd. `activityType`: Playing/Watching/Listening/Competing/Streaming.
 
-## Message Sending & Interaction Replies
+## Message Sending & Basic Replies
 
-*   `$sendMessage[content?]`: Sends message/embed/components explicitly. Uses context's built embed/components if `content` is omitted. Returns message ID.
-*   `$reply[content?]`: Replies to the triggering message. Uses context's built embed/components if `content` is omitted. Returns message ID.
-*   `$interactionReply[content?;ephemeral?;returnMsgID?]`: Replies to interaction. Fails if already replied/deferred. Uses context's built embed/components if `content` is omitted. Optionally returns message ID.
-*   `$followUp[content?;ephemeral?;returnMsgID?]`: Sends follow-up to interaction. Uses context's built embed/components if `content` is omitted. Returns message ID if requested.
-*   `$interactionUpdate[content?]`: Edits the original component message. Clears unmentioned content/embeds/components unless rebuilt in code. Uses context's built embed/components if `content` is omitted.
-*   `$deferReply[ephemeral?]`: Defers interaction reply. Use when response takes > 3 seconds.
-*   `$ephemeral`: Marks interaction response as ephemeral (use before reply/defer).
+*   `$sendMessage[content?]`: Sends message/embed/components explicitly. Uses context's built embed/components/attachments if `content` is omitted. Returns message ID.
+*   `$reply[content?]`: Replies to the triggering message. Uses context's built embed/components/attachments if `content` is omitted. Returns message ID.
+
+## Interaction Handling & Replies
+
+*   `$interactionReply[content?;ephemeral?;returnMsgID?]`: Replies *once* to a slash command, button, or select menu interaction. Fails if already replied/deferred. Sends current embed/components/attachments. `ephemeral`: Makes the reply visible only to the user. `returnMsgID`: If true and not ephemeral, returns the ID of the reply message.
+*   `$followUp[content?;ephemeral?;returnMsgID?]`: Sends a follow-up message after an interaction has already been replied to or deferred. Can be used multiple times. Sends current embed/components/attachments. `ephemeral`: Makes the reply visible only to the user. `returnMsgID`: If true, returns the ID of the follow-up message.
+*   `$interactionUpdate[content?]`: Edits the *original message* associated with a component (button/select menu) interaction. Cannot be used for slash commands or modals. Clears any existing content/embeds/components on the original message unless new ones are provided via `$title`, `$addButton`, etc., *before* calling `$interactionUpdate`. Uses context's built embed/components/attachments if `content` is omitted. Returns nothing.
+*   `$deferReply[ephemeral?]`: Defers the initial reply to an interaction, showing a "thinking..." state. Necessary if processing takes longer than 3 seconds. Use `$followUp` afterwards. `ephemeral`: Defers ephemerally. Returns nothing.
+*   `$ephemeral`: Marks the interaction response (when using `$interactionReply` or implicit sending) as ephemeral. Use *before* the reply/defer function. Returns nothing.
+*   `$interactionCustomID`: Returns the `customId` of the button, select menu, or modal that triggered the interaction. Returns error if not a component/modal interaction.
+*   `$interactionValues`: Returns the selected value(s) from a select menu interaction. If multiple values are selected, they are joined by a semicolon (`;`). Returns error if not a select menu interaction.
+*   `$interactionID`: Returns the unique ID of the current interaction.
+*   `$interactionToken`: Returns the interaction's token (used internally for replies/webhooks).
+*   `$interactionChannelID`: Returns the ID of the channel where the interaction occurred.
+*   `$interactionGuildID`: Returns the ID of the guild where the interaction occurred.
+*   `$interactionUserID`: Returns the ID of the user who initiated the interaction.
+*   `$isInteraction`: Returns `true` if the current context is an interaction, `false` otherwise.
+*   `$isMessage`: Returns `true` if the current context is a message, `false` otherwise.
+*   `$isEphemeral`: Returns `true` if the interaction was deferred ephemerally. *(Note: Cannot reliably detect if a non-deferred reply was made ephemeral).*
+*   `$getInteractionSubcommand`: Returns the name of the used subcommand from a slash command interaction, if one was used. Returns empty string otherwise.
+*   `$getInteractionSubcommandGroup`: Returns the name of the used subcommand group from a slash command interaction, if one was used. Returns empty string otherwise.
+*   `$slashCommandName`: Returns the name of the executed slash command. Returns error if not a slash command interaction.
+*   `$interactionOption[optionName]`: Gets the value of a slash command option.
+
+## Modal Handling
+
+*   `$addModal[customID;title;$addTextInput[...];...]`: Builds a modal object in the execution context. The `customID` is used to identify the modal when submitted. `title` is the modal title. Subsequent arguments must be `$addTextInput[...]` functions. Returns nothing.
+*   `$addTextInput[customID;label;style(Short/Paragraph);required?;minLength?;maxLength?;placeholder?;value?]`: *Used only inside `$addModal`*. Defines a text input field for the modal. `required`: true/false. `style`: Short/Paragraph. Returns an error if used outside `$addModal`.
+*   `$interactionShowModal`: Shows the modal previously built using `$addModal` as the response to the current interaction. Fails if the interaction was already replied/deferred or isn't suitable for showing a modal (e.g., modal submit itself). Returns nothing.
+*   `$modalFieldValue[fieldCustomId]`: Returns the text value submitted by the user for a specific text input field (identified by its `customId`) within a modal submit interaction. Returns error if not a modal submit or field not found.
+
+## Component Building
+
+*   `$addButton[customIDOrURL;label;style;disabled?;emoji?]`: Adds button data to the execution context (`context.components`). `style`: Primary/Secondary/Success/Danger/Link. If style is Link, first arg is URL; otherwise, it's the `customId`. Returns nothing.
+*   `$addSelectMenu[customID;placeholder;minValues=1?;maxValues=1?;disabled?]`: Adds string select menu data to context. Use `$addSelectOption` immediately after to add options to *this* menu. Returns nothing.
+*   `$addSelectOption[label;value;description?;emoji?;default?]`: Adds an option to the *most recently added* select menu builder in the context. Must follow `$addSelectMenu`. Returns nothing.
 
 ## Message Actions & Info
 
 *   `$deletecommand`: Deletes the triggering message (if applicable).
 *   `$deleteIn[milliseconds]`: Deletes last `$sendMessage`/`$reply` message after delay.
-*   `$editMessage[messageID;newContent?]`: Edits a specific bot message. Uses current embed/components from context if `newContent` is omitted.
+*   `$editMessage[messageID;newContent?]`: Edits a specific bot message. Uses current embed/components/attachments from context if `newContent` is omitted.
 *   `$addReaction[messageID;emoji1;emoji2...]`: Adds reaction(s) to a message.
 *   `$removeReaction[messageID;emoji;userID=@me?]`: Removes reaction(s) from a message. `@me` targets the bot.
 *   `$pinMessage[messageID]`: Pins a message.
@@ -46,18 +78,19 @@ This page lists the built-in functions available in Solara.js, categorized for e
 *   `$messageContent`: Returns raw content of the triggering message.
 *   `$messageArgs`: Returns semicolon-separated arguments from a prefix command.
 *   `$messageArg[index]`: Returns the argument at the specified index (1-based) from a prefix command.
-*   `$noMentionMessage`: Returns `$messageContent` with mentions removed.
-*   `$lastMessageID`: Returns ID of last message sent via `$sendMessage`/`$reply`.
-*   `$repliedMessageID`: Returns ID of the message being replied to (if any).
-*   `$repliedMessageAuthor`: Returns User ID of the author of the message being replied to (if any).
-*   `$messageAttachmentCount`: Returns number of attachments on the triggering message.
+*   `$noMentionMessage`: Returns command arguments without pings/mentions.
+*   `$lastMessageID`: Returns ID of message sent by `$sendMessage`/`$reply`.
+*   `$repliedMessageID`: ID of the message being replied to (if any).
+*   `$repliedMessageAuthor`: User ID of the author of the message being replied to (if any).
+*   `$messageAttachmentCount`: Number of attachments on the triggering message.
 *   `$attachment[index=1?]`: Returns URL of the attachment at the specified index (1-based).
-*   `$isPinned[messageID?]`: Checks if the trigger message (or specified message) is pinned. Returns `true` or `false`.
-*   `$messageURL`: Returns the URL of the triggering message.
-*   `$messageType`: Returns the type of the triggering message (e.g., `Default`, `Reply`).
-*   `$messageEditedTimestamp`: Returns timestamp (ms) when trigger message was last edited, or 0.
-*   `$messageExists[messageID;channelID]`: Returns `true` or `false` if message exists.
-*   `$clear[amount;filterUserID?;pinned?]`: Bulk deletes messages (1-100). `pinned`: `true` to ignore pinned, `false` to include (default).
+*   `$isPinned[messageID?]`: Returns `true` or `false`.
+*   `$messageURL`: URL of the triggering message.
+*   `$messageType`: Type of the triggering message (`Default`, `Reply`, etc.).
+*   `$messageEditedTimestamp`: Timestamp (ms) message was last edited.
+*   `$messageExists[messageID;channelID]`: Returns `true` or `false`.
+*   `$clear[amount;filterUserID?;pinned?]`: Bulk deletes messages (1-100). `pinned`: `true` to ignore pinned, `false` (default) to include.
+*   `$messageData[type;property;channelID?;index=1?]`: *(Requires Setup/Potentially Unreliable)* Gets data for deleted/edited messages. `type`: deleted/edited. `property`: content/authorid/timestamp/messageid/channelid.
 
 ## Embed Building
 
@@ -70,12 +103,6 @@ This page lists the built-in functions available in Solara.js, categorized for e
 *   `$timestamp[milliseconds?]`: Adds embed timestamp (defaults to now).
 *   `$thumbnail[url]`: Sets embed thumbnail URL.
 *   `$image[url]`: Sets embed image URL.
-
-## Component Building
-
-*   `$addButton[customIDOrURL;label;style;disabled?;emoji?]`: Adds button builder. `style`: Primary/Secondary/Success/Danger/Link.
-*   `$addSelectMenu[customID;placeholder;minValues=1?;maxValues=1?;disabled?]`: Adds string select menu builder. Must be followed by `$addSelectOption`.
-*   `$addSelectOption[label;value;description?;emoji?;default?]`: Adds option to the last added select menu builder.
 
 ## User/Member Info
 
@@ -95,11 +122,12 @@ This page lists the built-in functions available in Solara.js, categorized for e
 *   `$highestRole[memberID?]`: Returns the ID of the highest role of the member (or author).
 *   `$lowestRole[memberID?]`: Returns the ID of the lowest role (@everyone) of the member (or author).
 *   `$hasRole[roleID;memberID?]`: Returns `true` or `false` if the member (or author) has the role.
-*   `$isBooster[memberID?]`: Returns `true` or `false` if the member (or author) is boosting the server.
-*   `$boostingSince[memberID?]`: Returns timestamp (ms) when the member (or author) started boosting.
+*   `$isBooster[memberID?]`: Alias for `$isBoosting`. Returns `true` or `false`.
+*   `$isBoosting[memberID?]`: Returns `true` or `false` if the member (or author) is boosting the server.
+*   `$boostingSince[memberID?]`: Returns timestamp (ms) member started boosting.
 *   `$isKickable[memberID]`: Returns `true` or `false` if the bot can kick the specified member.
 *   `$isBannable[userID]`: Returns `true` or `false` if the bot can ban the specified user.
-*   `$isModeratable[memberID]`: Returns `true` or `false` if the bot can moderate the member (kick/ban/timeout).
+*   `$isModeratable[memberID]`: Returns `true` or `false` if the bot can moderate the member (kick/ban/timeout, etc.).
 *   `$userBanner[userID?]`: Returns the user's banner URL (if available).
 *   `$userRoles[memberID?;type=id?]`: Returns semicolon-separated list of role IDs (`type=id`) or names (`type=name`) for the member (or author).
 *   `$memberAvatar[memberID?]`: Returns the server-specific avatar URL if set, otherwise the user's main avatar URL.
@@ -123,10 +151,10 @@ This page lists the built-in functions available in Solara.js, categorized for e
 *   `$boostLevel[guildID?]`: Returns the server boost level (0-3).
 *   `$serverVerificationLevel[guildID?]`: Returns the verification level name.
 *   `$guildFeatures[guildID?]`: Returns semicolon-separated list of guild features.
-*   `$vanityURLCode[guildID?]`: Returns the vanity invite code (if any).
+*   `$vanityURLCode[guildID?]`: Returns the guild's vanity invite code.
 *   `$rulesChannelID[guildID?]`: Returns the ID of the rules channel.
 *   `$publicUpdatesChannelID[guildID?]`: Returns the ID of the public updates channel.
-*   `$mfaLevel[guildID?]`: Returns MFA level (0 or 1).
+*   `$mfaLevel[guildID?]`: Returns MFA level name (None/Elevated).
 *   `$explicitContentFilter[guildID?]`: Returns explicit content filter level name.
 *   `$afkChannelID[guildID?]`: Returns the ID of the AFK channel.
 *   `$afkTimeout[guildID?]`: Returns the AFK timeout in seconds.
@@ -157,20 +185,22 @@ This page lists the built-in functions available in Solara.js, categorized for e
 *   `$setChannelName[channelID;newName;reason?]`: Renames a channel.
 *   `$setChannelTopic[channelID;newTopic;reason?]`: Sets a channel's topic.
 *   `$setChannelSlowmode[seconds;channelID?;reason?]`: Sets channel slowmode.
+*   `$setChannelPerms[...]`: Complex permission setting.
 *   `$channelIDs[type=any?]`: Returns semicolon-separated list of channel IDs in current guild. `type`: Text/Voice/Category/etc.
 *   `$channelNames[type=any?]`: Returns semicolon-separated list of channel names in current guild.
 *   `$isThread[channelID?]`: Returns `true` or `false` if the channel is a thread.
 *   `$isForum[channelID?]`: Returns `true` or `false` if the channel is a forum.
-*   `$threadParentID[threadID?]`: Returns the parent channel ID of the thread.
-*   `$threadName[threadID?]`: Returns the name of the thread.
+*   `$threadParentID[threadID?]`: Returns the parent channel/forum ID of a thread.
+*   `$threadName[threadID?]`: Returns the name of a thread.
 *   `$createThread[name;startMessageID?;type=Public?;autoArchiveDuration=Max?;reason?]`: Creates a thread. Returns new thread ID.
 *   `$deleteThread[threadID?;reason?]`: Deletes a thread.
-*   `$lockThread[threadID?;reason?]`: Locks a thread.
+*   `$lockThread[threadID?;reason?]`: Locks a thread (only mods can send).
 *   `$unlockThread[threadID?;reason?]`: Unlocks a thread.
 *   `$archiveThread[threadID?;reason?]`: Archives a thread.
 *   `$unarchiveThread[threadID?;reason?]`: Unarchives a thread.
+*   `$useChannel[channelID]`: *(Experimental/Unreliable)* Attempts to change channel context for subsequent functions.
 
-## Role Info & Management
+## Role Management
 
 *   `$roleName[roleID]`: Returns the name of the role.
 *   `$roleColor[roleID]`: Returns the hex color code of the role.
@@ -185,15 +215,20 @@ This page lists the built-in functions available in Solara.js, categorized for e
 *   `$isRoleEditable[roleID]`: Returns `true` or `false` if the bot can edit the role.
 *   `$isManaged[roleID]`: Returns `true` or `false` if the role is managed by an integration.
 *   `$isHoisted[roleID]`: Returns `true` or `false` if the role is displayed separately.
+*   `$isMentionable[roleID]`: Returns `true` or `false` if the role can be mentioned.
 *   `$roleMembersCount[roleID]`: Returns the number of members with the role.
 
-## Emoji/Sticker Info
+## Emoji/Sticker Info & Management
 
 *   `$emojiList`: Returns semicolon-separated list of custom emoji IDs in current guild.
 *   `$emojiExists[emojiID or full emoji]`: Returns `true` or `false` if the custom emoji exists in the guild.
 *   `$getEmoji[emojiName or emojiID]`: Returns the full emoji string (`<:name:id>` or `<a:name:id>`).
 *   `$emojiURL[emojiID or full emoji]`: Returns the URL of the custom emoji image.
 *   `$stickerURL[stickerID]`: Returns the URL of the sticker image.
+*   `$cloneEmoji[emojiID or emoji;newName?;reason?]`: Clones emoji to current server. Returns new emoji string.
+*   `$addEmoji[imageURL;name;reason?]`: Adds emoji to current server. Returns new emoji string.
+*   `$addSticker[...]`: *(Not Implemented)*
+*   `$cloneSticker[...]`: *(Not Implemented)*
 
 ## Moderation Actions
 
@@ -203,7 +238,7 @@ This page lists the built-in functions available in Solara.js, categorized for e
 *   `$timeout[memberID;durationMs;reason?]`: Times out a member (max 28 days).
 *   `$removeTimeout[memberID;reason?]`: Removes a member's timeout.
 
-## Role/User Assignment
+## Role & User Assignment
 
 *   `$addRole[memberID;roleID;reason?]`: Adds a role to a member.
 *   `$removeRole[memberID;roleID;reason?]`: Removes a role from a member.
@@ -211,17 +246,17 @@ This page lists the built-in functions available in Solara.js, categorized for e
 
 ## Permissions & Restrictions
 
-*   `$onlyForIDs[id1;id2...;errorMessage?]`: Stops execution if author's ID is not in the list.
-*   `$onlyPerms[perm1;perm2...;errorMessage?]`: Stops execution if author lacks all specified permissions.
-*   `$onlyIf[condition;errorMessage?]`: Stops execution if the condition (e.g., from `$checkCondition`) is false.
-*   `$onlyRoles[roleID1;roleID2...;errorMessage?]`: Stops execution if author lacks at least one of the specified roles.
-*   `$ignoreUsers[userID1;userID2...]`: Prevents command execution for specific users.
-*   `$ignoreRoles[roleID1;roleID2...]`: Prevents command execution for users with specific roles.
-*   `$ignoreChannels[channelID1;channelID2...]`: Prevents command execution in specific channels.
+*   `$onlyForIDs[id1;id2...;errorMessage?]`: Stops execution with error message if author's ID is not in the list.
+*   `$onlyPerms[perm1;perm2...;errorMessage?]`: Stops execution with error message if the author lacks *all* specified permissions in the current context (channel or guild).
+*   `$onlyIf[condition;errorMessage?]`: Stops execution with error message if the `condition` string is false-like ("false", "no", "0", "").
+*   `$onlyRoles[roleID1;roleID2...;errorMessage?]`: Stops execution with error message if the author doesn't have *at least one* of the specified roles. Requires guild context.
+*   `$ignoreUsers[userID1;userID2...]`: Stops execution silently if the author's ID is in the list.
+*   `$ignoreRoles[roleID1;roleID2...]`: Stops execution silently if the author has *any* of the specified roles. Requires guild context.
+*   `$ignoreChannels[channelID1;channelID2...]`: Stops execution silently if the command is used in one of the specified channels.
 *   `$hasPermission[perm1;perm2...;memberID=@me?]`: Returns `true` or `false` if the member (or bot) has all permissions in the current channel context.
-*   `$hasGuildPermission[perm1;perm2...;memberID=@me?]`: Returns `true` or `false` if the member (or bot) has all permissions in the guild context.
-*   `$userPermissions[scope=channel?;memberID?]`: Returns semicolon-separated list of permission names for the user (or author). `scope`: `channel` or `guild`.
-*   `$botPermissions[scope=channel?]`: Returns semicolon-separated list of the bot's permission names. `scope`: `channel` or `guild`.
+*   `$hasGuildPermission[perm1;perm2...;memberID=@me?]`: Checks if member has permissions at the GUILD level. Returns `true` or `false`.
+*   `$userPermissions[scope=channel?;memberID?]`: Returns semicolon-separated list of the member's calculated permissions in the specified scope (channel or guild).
+*   `$botPermissions[scope=channel?]`: Returns semicolon-separated list of the bot's calculated permissions in the specified scope.
 
 ## Variables
 
@@ -236,26 +271,28 @@ This page lists the built-in functions available in Solara.js, categorized for e
 
 ## Utility & Control Flow
 
-*   `$updateCommands`: Reloads commands and events. \[OWNER ONLY]
-*   `$solaraEval[Solara.js code]`: Executes Solara.js code dynamically. \[OWNER ONLY]
-*   `$djsEval[javascript code]`: Executes raw JavaScript code. \[EXTREMELY DANGEROUS - OWNER ONLY]
+*   `$updateCommands`: Reloads commands and events.
+*   `$solaraEval[solara.js code]`: Alias for `$bdscriptEval`. Parses and executes the input string as Solara code.
+*   `$bdscriptEval[solara.js code]`: Parses and executes the input string as Solara code within the current context. Returns the result of the parsed code.
+*   `$djsEval[javascript code]`: Executes raw JavaScript code using Node.js's `eval`. Provides context variables. *(EXTREMELY DANGEROUS)*. Returns the stringified result.
 *   `$comment[...]`: Ignored by the interpreter. Useful for adding comments to your code.
 *   `$checkCondition[val1;op;val2]`: Compares two values. `op`: `==`, `!=`, `>`, `<`, `>=`, `<=`. Returns `true` or `false`.
 *   `$if[condition;then;else?]`: Conditional execution. `condition` should evaluate to `true` or `false`.
 *   `$and[cond1;cond2...]`: Returns `true` if all conditions are true.
 *   `$or[cond1;cond2...]`: Returns `true` if at least one condition is true.
 *   `$not[condition]`: Returns the opposite boolean value of the condition.
-*   `$switch[value;$case[match;then];$defaultCase[default]]`: Basic switch logic. Use `$case` and `$defaultCase` markers.
-*   `$case[match;then]`: Marker for `$switch`. Code inside `then` is executed if `value` matches `match`.
-*   `$defaultCase[default]`: Marker for `$switch`. Code inside `default` executes if no `$case` matches.
-*   `$try[codeToTry;$catch[errorCode]]`: Basic try/catch logic. Use `$catch` marker.
-*   `$catch[errorCode]`: Marker for `$try`. Code inside `errorCode` executes if `codeToTry` fails.
-*   `$error[message]`: Stops execution immediately and logs an error message.
+*   `$switch[value;$case[...];$defaultCase[...]]`: *(Simplified)* Compares `value` to the `match` in each `$case`. Returns the `then` value of the first matching `$case`. If none match, returns the value from `$defaultCase`.
+*   `$case[match;then]`: *(Marker for $switch)* Defines a case.
+*   `$defaultCase[default]`: *(Marker for $switch)* Defines the default return value.
+*   `$try[codeToTry;$catch[errorCode]]`: *(Simplified)* Executes `codeToTry`. If an error occurs (except `StopExecutionError`), it executes `errorCode` (setting `$errorMsg` locally). Returns the result of the executed code block.
+*   `$catch[errorCode]`: *(Marker for $try)* Defines the code to run if `$try` encounters an error.
+*   `$error[message]`: Immediately stops execution and sends the provided message as an error response.
 *   `$wait[milliseconds]`: Pauses execution for the specified duration.
 *   `$log[...]`: Logs the provided arguments to the console.
 *   `$hyperlink[text;url]`: Creates Markdown hyperlink `[text](url)`.
-*   `$repeat[times;delayMs;code;stopOnError=true?]`: Runs `code` asynchronously multiple times with a delay between runs.
-*   `$forEach[code;item1;item2...]`: Executes `code` for each item. Inside `code`, use `$forEachItem` for current item and `$forEachIndex` for its index (1-based). \[Simplified]
+*   `$repeat[times;delayMs;code;stopOnError=true?]`: Executes the Solara `code` asynchronously `times` times, waiting `delayMs` between each execution. Min delay 250ms, max iterations 20. Returns nothing immediately.
+*   `$forEach[code;item1;item2...]`: *(Simplified)* Executes `code` for each `item`. Sets temporary local variables `$forEachItem` and `$forEachIndex` (1-based) for each iteration.
+*   `$awaitMessages[...]`: *(Not Implemented)* Requires collectors.
 *   `$commandTrigger`: Returns the trigger word/command name used.
 
 ## Math
@@ -316,6 +353,7 @@ This page lists the built-in functions available in Solara.js, categorized for e
 *   `$joinText[separator;item1;item2...]`: Joins items using the separator.
 *   `$listItem[index;item1;item2...]`: Returns the item at the 1-based index.
 *   `$itemCount[item1;item2...]`: Returns the number of items provided. (Alias: `$listLength`)
+*   `$listLength`: Alias for `$itemCount`.
 *   `$findItem[searchItem;item1;item2...]`: Returns the 1-based index of the first matching item, or -1.
 *   `$findLastItem[searchItem;item1;item2...]`: Returns the 1-based index of the last matching item, or -1.
 *   `$listContains[searchItem;item1;item2...]`: Returns `true` or `false` if the list contains the item.
@@ -325,7 +363,7 @@ This page lists the built-in functions available in Solara.js, categorized for e
 *   `$popList[item1;item2...]`: Returns the last item from the list.
 *   `$sortList[type;item1;item2...]`: Sorts items. `type`: `az`/`za` (alphabetical), `numaz`/`numza`/`asc`/`desc` (numerical). Returns sorted list joined by ';'.
 *   `$sortAlphabetical[order;item1;item2...]`: Alias for `$sortList` with `az`/`za`.
-*   `$filterList[value;item1;item2...]`: Returns items that exactly match `value`, joined by ';'. \[Simplified]
+*   `$filterList[value;item1;item2...]`: Returns items that exactly match `value`, joined by ';'. *(Simplified)*
 
 ## Time/Date
 
@@ -351,27 +389,23 @@ This page lists the built-in functions available in Solara.js, categorized for e
 *   `$base64Decode[base64Text]`: Decodes Base64 text.
 *   `$urlEncode[text]`: Encodes text for use in URLs.
 *   `$urlDecode[encodedText]`: Decodes URL-encoded text.
-*   `$httpRequest[url;method=GET?;bodyJson?;headersJson?]`: Performs an HTTP request. \[OWNER ONLY - SECURITY RISK]
+*   `$httpRequest[url;method=GET?;bodyJson?;headersJson?]`: Performs an HTTP request.
 
-## File System (Use with extreme caution!)
+## Invite Info
 
-*   `$readFile[filePath]`: Reads content from a file. \[OWNER ONLY - SECURITY RISK]
-*   `$writeFile[filePath;content]`: Writes content to a file. \[OWNER ONLY - SECURITY RISK]
+*   `$inviteInfo[inviteCode;property]`: Fetches invite data. `property`: guildID, guildName, channelID, channelName, inviterID, inviterTag, uses, maxUses, expiresTimestamp, code.
 
-## Interaction Specific
+## Voice
 
-*   `$interactionID`: Returns the ID of the interaction.
-*   `$interactionToken`: Returns the interaction token. \[SECURITY RISK]
-*   `$interactionChannelID`: Returns the channel ID where the interaction occurred.
-*   `$interactionGuildID`: Returns the guild ID where the interaction occurred.
-*   `$interactionUserID`: Returns the user ID who triggered the interaction.
-*   `$isInteraction`: Returns `true` if the context is an interaction, `false` otherwise.
-*   `$isMessage`: Returns `true` if the context is a message, `false` otherwise.
-*   `$interactionOption[optionName]`: Gets the value of a slash command option.
-*   `$interactionCustomID`: Gets the `customId` of the interacted component/modal.
-*   `$interactionValues`: Gets the selected value(s) from a select menu (joined by ';').
-*   `$modalFieldValue[fieldCustomId]`: Gets the value submitted in a specific modal text input field.
-*   `$isEphemeral`: Returns `true` if the interaction was deferred ephemerally.
-*   `$getInteractionSubcommand`: Returns the used subcommand name (if any).
-*   `$getInteractionSubcommandGroup`: Returns the used subcommand group name (if any).
-*   `$slashCommandName`: Returns the name of the triggered slash command.
+*   `$voiceJoin[channelID?]`: Joins user's VC or specified VC. *(Requires Player Setup)*
+*   `$voiceLeave[guildID?]`: Leaves VC in specified/current guild. *(Requires Player Setup)*
+
+## Ticket System
+
+*   `$createTicketChannel[baseName;userID=@me?;categoryID?;reason?]`: Creates a private channel named `baseName-username`. Returns new channel ID. *(Requires Setup/Permissions)*
+
+## File System
+
+*   `$readFile[filePath]`: Reads content from a file.
+*   `$writeFile[filePath;content]`: Writes content to a file.
+*   `$createFileAttachment[filePath;fileName?]`: Adds a file from path to the *next* message/reply payload.
