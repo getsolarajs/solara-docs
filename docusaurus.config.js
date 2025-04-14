@@ -11,7 +11,7 @@ const config = {
   organizationName: 'getsolarajs',
   projectName: 'solara-docs',
 
-  deploymentBranch: 'main',
+  deploymentBranch: 'gh-pages',
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
