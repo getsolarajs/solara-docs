@@ -6,11 +6,11 @@ const config = {
   tagline: 'Develop Discord.js v14 Bots with Simplicity and Power',
   favicon: 'img/image.png',
 
-  url: 'https://your-solara-js-docs-url.com',
+  url: 'https://solara.js.org',
   baseUrl: '/',
 
   organizationName: 'getsolarajs', 
-  projectName: 'solara-js-docs', 
+  projectName: 'solara-docs', 
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -28,7 +28,7 @@ const config = {
         docs: {
           sidebarPath: './sidebars.js',
           routeBasePath: '/docs', 
-          editUrl: 'https://github.com/getsolarajs/solara-js-docs/tree/main/',
+          editUrl: 'https://github.com/getsolarajs/solara-docs/tree/main/',
         },
         blog: false,
         theme: {
