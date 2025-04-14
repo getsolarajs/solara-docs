@@ -1,4 +1,3 @@
-// docusaurus.config.js
 import { themes as prismThemes } from 'prism-react-renderer';
 
 const config = {
@@ -9,8 +8,10 @@ const config = {
   url: 'https://solara.js.org',
   baseUrl: '/',
 
-  organizationName: 'getsolarajs', 
-  projectName: 'solara-docs', 
+  organizationName: 'getsolarajs',
+  projectName: 'solara-docs',
+
+  deploymentBranch: 'gh-pages',
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -27,7 +28,7 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          routeBasePath: '/docs', 
+          routeBasePath: '/docs',
           editUrl: 'https://github.com/getsolarajs/solara-docs/tree/main/',
         },
         blog: false,
@@ -40,7 +41,7 @@ const config = {
 
   themeConfig:
     ({
-      image: 'img/image.png', 
+      image: 'img/image.png',
       colorMode: {
         defaultMode: 'light',
         disableSwitch: false,
@@ -62,7 +63,7 @@ const config = {
           {
             href: 'https://github.com/getsolarajs/solara.js',
             position: 'right',
-            className: 'navbar-github-link', 
+            className: 'navbar-github-link',
             'aria-label': 'GitHub repository',
           },
         ],
