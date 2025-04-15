@@ -1,4 +1,3 @@
----
 sidebar_position: 1
 title: Function List
 id: function-list
@@ -34,7 +33,12 @@ This page lists the built-in functions available in Solara.js, categorized for e
 *   `$changeBotStatus[status;activityType;activityName;streamURL?]`: Changes bot presence using the specified status, activity type, activity name, and optional stream URL for streaming status.
 *   `$changeBotUsername[newUsername]`: Changes bot username to the provided name. **[Rate Limited]**
 *   `$getClientData[property]`: Gets a client configuration property by its name. *(May be specific to certain setups)*
+*   `$developers`: Returns the list of Solara developers (p61s, iv.aylo).
+*   `$djsVersion`: Returns the installed discord.js version.
+*   `$functionInfo`: Returns information about a specific function.
 *   `$isVerifiedBot`: Checks if the bot is verified (returns true or false).
+*   `$nodeVersion`: Returns the running Node.js version.
+*   `$packageVersion`: Returns the current version of the Solara package.
 *   `$ping`: Returns websocket ping in milliseconds. Alias: `$botPing`.
 *   `$shardCount`: Returns the total number of shards for the bot (usually 1 if not sharded).
 *   `$shardID`: Returns the ID of the current shard (usually 0 if not sharded).
@@ -453,6 +457,7 @@ This page lists the built-in functions available in Solara.js, categorized for e
 *   `$isString[valueOrVarName;scope?]`: Returns `true` if the value or variable's internal type is 'string'.
 *   `$italic[text]`: Formats text as italic using Markdown.
 *   `$length[text]`: Returns the number of characters in the text.
+*   `$ordinal[number]`: Returns the ordinal representation of a number (e.g., 1st, 2nd, 3rd, 4th).
 *   `$padEnd[text;targetLength;padString=' '?]`: Pads the end of the text with `padString` (default space) until it reaches `targetLength`.
 *   `$padStart[text;targetLength;padString=' '?]`: Pads the start of the text with `padString` (default space) until it reaches `targetLength`.
 *   `$quote[text]`: Formats text as an inline Markdown quote (prepends `> ` to each line).
@@ -512,7 +517,10 @@ This page lists the built-in functions available in Solara.js, categorized for e
 
 *   `$base64Decode[base64Text]`: Decodes Base64 encoded text. Returns the original text or an error if invalid.
 *   `$base64Encode[text]`: Encodes text to a Base64 string.
+*   `$httpContentType[url]`: Gets the Content-Type header for a URL (performs a HEAD request).
+*   `$httpHead[url]`: Performs an HTTP HEAD request and returns headers as JSON string.
 *   `$httpRequest[url;method=GET?;bodyJson?;headersJson?]`: Performs an HTTP request to the specified URL. Optional arguments for method, JSON body, and JSON headers. Returns the response body as text. **[SECURITY RISK]**
+*   `$httpStatus[url]`: Gets the HTTP status code for a URL (performs a GET request).
 *   `$isValidHex[hex code]`: Returns `true` or `false` if the input string is a valid 3 or 6 digit hex color code (optionally starting with #).
 *   `$isValidJson[text]`: Returns `true` or `false` if the input text can be parsed as valid JSON.
 *   `$jsonParse[jsonString;path?]`: Parses a JSON string. If `path` is provided using object dot notation or array bracket notation, it returns the value at that path. If `path` is omitted, returns the whole parsed object/array. Alias `$parseJson`.
