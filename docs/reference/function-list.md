@@ -621,4 +621,4 @@ This page lists the built-in functions available in Solara.js, categorized for e
 
 ## Giveaways
 
-*   `$giveaway[action;messageID?;optionsJson?;settings?]`: Manages giveaways. `action` might be start, end, reroll. `optionsJson` and `settings` contain giveaway details (duration, prize, winner count, etc.). Parameters depend heavily on the specific system.
+*   `$giveawayduration;winnerCount;prize;[requiredRoleID?]`: Starts a simple giveaway.
