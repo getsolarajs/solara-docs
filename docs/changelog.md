@@ -11,7 +11,7 @@ This document tracks the changes, additions, and fixes made to Solara.js across 
 
 ## Version 0.1.6 (15-04-25)
 
-This version focuses on enhancing interaction handling and adding more utility functions.
+This version focuses on adding more utility functions.
 
 ### ✨ Added
 
