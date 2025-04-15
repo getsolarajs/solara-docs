@@ -27,7 +27,7 @@ function HomepageHeader() {
               </Link>
               <Link
                 className={`button button--secondary button--lg ${styles.secondaryButton}`}
-                to="/docs/getting-started/first-bot"> {/* Consider updating this link if needed */}
+                to="/docs/first-bot"> {/* Consider updating this link if needed */}
                 View Example
               </Link>
             </div>
