@@ -621,4 +621,4 @@ This page lists the built-in functions available in Solara.js, categorized for e
 
 ## Giveaways
 
-*   `$giveawayduration;winnerCount;prize;[requiredRoleID?]`: Starts a simple giveaway.
+*   `$giveaway[duration;winnerCount;prize;[requiredRoleID?]]`: Starts a simple giveaway.
