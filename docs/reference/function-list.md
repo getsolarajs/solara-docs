@@ -378,7 +378,7 @@ This page lists the built-in functions available in Solara.js, categorized for e
 *   `$and[cond1;condN...]`: Returns `true` if all provided conditions evaluate to true-like values.
 *   `$awaitMessages[filterCode;maxMessages;timeMs;channelID?]`: Waits for messages matching criteria defined by `filterCode` (Solara code returning true/false). Stops after `maxMessages` or `timeMs`.
 *   `$awaitReactions[filterCode;maxReactions;timeMs;messageID?]`: Waits for reactions matching criteria defined by `filterCode` (Solara code returning true/false). Stops after `maxReactions` or `timeMs`.
-*   `$bdscriptEval[solaraCode]`: Parses and executes the input string as Solara code within the current context. Returns the result of the parsed code. Alias `$solaraEval`.
+*   `$solaraEval[solaraCode]`: Parses and executes the input string as Solara code within the current context. Returns the result of the parsed code. Alias `$solaraEval`.
 *   `$case[match;then]`: Defines a case for use within a `$switch` block. Matches the `match` value against the `$switch` value.
 *   `$catch[errorCode]`: Defines the code block to run if the corresponding `$try` block encounters an error. Used within `$try`.
 *   `$checkCondition[val1;op;val2]`: Compares two values using a specified operator (`==`, `!=`, `>`, `<`, `>=`, `<=`). Returns `true` or `false`.
