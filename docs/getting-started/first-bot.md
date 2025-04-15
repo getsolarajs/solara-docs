@@ -6,7 +6,7 @@ title: First Bot
 
 # Your First Bot
 
-Let's create a simple "ping" bot using Solara.js. This example demonstrates the core file structure and the function-based scripting approach.
+Let's create a simple "ping" command using Solara.js. This example demonstrates the core file structure and the function-based scripting approach.
 
 ## **1. Project Setup**
 
@@ -33,7 +33,7 @@ This file initializes the Solara.js client, tells it where to find commands, and
      partials: ["Channel", "Message"], // Helps with older messages/DMs
      SolaraOptions: {
          prefix: "!", // Your command prefix (like !help)
-         token: "YOUR_TOKEN_HERE" // Your secret bot token
+         token: "YOUR_TOKEN_HERE" // Your secret bot token (Never share your bot token!)
      }
  });
 
