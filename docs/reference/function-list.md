@@ -751,7 +751,7 @@ This page lists the built-in functions available in Solara.js categorized for ea
 
 *   `$giveaway[duration;winnerCount;prize;requiredRoleID?]`: Starts giveaway message using a duration string winner count and prize. Optional required role. **[Requires giveaway system implementation]**
 
-## Canvas / Image Manipulation (Requires `npm install canvas`)
+## Canvas / Image Manipulation
 
 *   `$attachCanvas[fileName?;quality?;compressionLevel?]`: Attaches current canvas as file. Optional filename quality JPEG compression PNG.
 *   `$captchaCard[captchaKey;backgroundURL?;borderColor?;overlayOpacity?]`: Generates Captcha image using key from `$captchaKey`. Optional appearance settings. **[Requires setup]**
