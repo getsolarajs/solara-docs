@@ -29,7 +29,7 @@ The core philosophy is to enable **rapid development** through **simplicity and 
 
 ## Getting Help
 
-*   Need help or want to chat with the community? Join our [Discord Server](https://discord.gg/your-invite-code).
+*   Need help or want to chat with the community? Join our [Discord Server](https://discord.gg/mkuh4bPng4).
 *   Found a bug or have a feature request? Report it on [GitHub Issues](https://github.com/getsolarajs/solara.js/issues).
 
 ## Ready to Start?
