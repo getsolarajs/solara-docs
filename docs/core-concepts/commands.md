@@ -95,17 +95,26 @@ Functions can control the flow. `$if[condition;then;else]` executes different co
 ```javascript
 // commands/levelcheck.js
 module.exports = {
-  name: 'levelcheck',
-  code: `
-    $let[userLevel;15] $comment[Pretend we got this level from a variable]
-    $if[$checkCondition[$get[userLevel];>=;10];
+    name: 'levelcheck', // Command trigger name
+    code: `
+      // Set a temporary variable 'userLevel' to 15 for this example.
+      // In a real bot, you'd likely fetch this from a database ($getUserVar, etc.).
+      $let[userLevel;15]
+
+      // $if checks a condition. Executes first part if true, second part if false.
+      // Syntax: $if[condition; code_if_true; code_if_false]
+      $if[$get[userLevel]>=10; // Condition: Check if the user's level is 10 or higher.
+
+        // --- Code if True (level >= 10) ---
+        // $get retrieves the variable's value for display.
         You are level $get[userLevel]! You have access to cool stuff!
-    ;
+
+      ; // Separator for true/false blocks
+
+        // --- Code if False (level < 10) ---
         You are only level $get[userLevel]. Keep chatting!
-    ]
-  `
-  // $checkCondition compares two values.
-  // $if executes the 'then' part if true, 'else' part if false.
-  // $let/$get are simple variable functions.
+
+      ] // End of $if
+    `
 };
 ```
