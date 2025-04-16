@@ -41,8 +41,6 @@ GET /api/?functionname=<function_name>
 }
 
 
----
-
 ### GET /about
 
 Retrieves more about the SolaraJS package.
