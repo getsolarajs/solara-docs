@@ -24,7 +24,7 @@ This page lists the built-in functions available in Solara.js categorized for ea
 *   `$botName`: Returns the client user's the bot's username.
 *   `$botPing`: Returns the bot's websocket heartbeat ping in milliseconds. Alias: `$ping`.
 *   `$botPresenceActivityName`: Returns the name of the bot's current primary activity. Requires Presence intent.
-*   `$botPresenceActivityType`: Returns the type of the bot's current primary activity e.g. Playing Watching. Requires Presence intent.
+*   `$botPresenceActivityType`: Returns the type of the bot's current primary activity e g Playing Watching. Requires Presence intent.
 *   `$botPresenceStatus`: Returns the bot's current presence status online idle dnd invisible. Requires Presence intent.
 *   `$botTags`: Returns the client user's application tags as a semicolon-separated list.
 *   `$botToken`: Returns a redacted bot token string. **[SECURITY RISK - OWNER ONLY]**
@@ -35,11 +35,11 @@ This page lists the built-in functions available in Solara.js categorized for ea
 *   `$changeBotUsername[newUsername]`: Changes the bot's username. **[RATE LIMITED - OWNER ONLY]**
 *   `$clientID`: Returns the client user's the bot's ID. Alias for `$botID`.
 *   `$developers`: Returns the list of Solara developers.
-*   `$djsVersion`: Returns the installed discord.js version.
+*   `$djsVersion`: Returns the installed discord js version.
 *   `$isVerifiedBot`: Checks if the bot is verified by Discord. Returns true or false.
-*   `$nodeVersion`: Returns the running Node.js version.
+*   `$nodeVersion`: Returns the running Node js version.
 *   `$packageVersion`: Returns the current version of the Solara package.
-*   `$ping`: Returns the bot's websocket heartbeat ping in milliseconds. Alias: `$botPing`.
+*   `$ping`: Returns the bot's websocket heartbeat ping in milliseconds. Alias `$botPing`.
 *   `$shardCount`: Returns the total number of shards for the bot.
 *   `$shardID`: Returns the ID of the current shard.
 *   `$uptime[format?]`: Returns the bot's uptime optionally specifying a format unit ms s m h d full.
@@ -128,7 +128,7 @@ This page lists the built-in functions available in Solara.js categorized for ea
 *   `$attachment[index?]`: Returns the URL of the attachment at the specified index default first from the triggering message.
 *   `$awaitMessages[filterUserID;timeMs]`: Waits for a single message from a user within a time limit ms. Returns content or empty. Basic implementation.
 *   `$awaitReactions[messageID;timeMs;emoji1;emoji2...;maxUsers?;removeReaction?]`: Awaits reactions on a message for specified emojis within a time limit ms. Optional: max users remove reaction after collection. **[Basic Implementation]**
-*   `$clear[amount;filterUserID?;pinned?]`: Bulk deletes messages up to 100 in current channel. Optional: filter by user ID ignore only delete pinned messages true false. Requires Manage Messages.
+*   `$clear[amount;filterUserID?;pinned?]`: Bulk deletes messages up to one hundred in current channel. Optional: filter by user ID ignore only delete pinned messages true false. Requires Manage Messages.
 *   `$clearReactions[messageID;emoji?]`: Removes all reactions or a specific emoji's reactions from a message. Requires Manage Messages.
 *   `$crosspostMessage[messageID;channelID?]`: Publishes a message in an announcement channel. Requires Manage Messages.
 *   `$deleteIn[milliseconds]`: Deletes the last message sent by the bot after a delay. **[Potentially unreliable]**
@@ -161,11 +161,11 @@ This page lists the built-in functions available in Solara.js categorized for ea
 *   `$messageID`: Returns the ID of the command message if applicable.
 *   `$messageReactionUsers[messageID;emoji]`: Returns semicolon-separated list of user IDs who reacted with a specific emoji.
 *   `$messageTimestamp`: Returns the creation timestamp ms of the triggering message.
-*   `$messageType`: Returns the type of the command message e.g. Default Reply.
+*   `$messageType`: Returns the type of the command message e g Default Reply.
 *   `$messageURL`: Returns the jump URL of the command message if applicable.
 *   `$noMentionMessage`: Returns command arguments `$message` without user role channel everyone mentions.
 *   `$pinMessage[messageID;reason?]`: Pins a message in its channel. Requires Manage Messages.
-*   `$purgeUserMessages[userID;amount;channelID?;reason?]`: Purges messages up to 100 by a user in a channel. Requires Manage Messages.
+*   `$purgeUserMessages[userID;amount;channelID?;reason?]`: Purges messages up to one hundred by a user in a channel. Requires Manage Messages.
 *   `$removeReaction[messageID;emoji;userID?]`: Removes a reaction from a message optionally by user ID defaults to bot. Alias `$removeReactionEmoji`. Requires Manage Messages if not own.
 *   `$removeReactionEmoji[messageID;emoji;userID?]`: Alias for `$removeReaction`.
 *   `$repliedMessageAuthor`: Returns the User ID of the author of the message being replied to if the trigger message is a reply.
@@ -195,7 +195,7 @@ This page lists the built-in functions available in Solara.js categorized for ea
 *   `$activity[userID?]`: Alias for `$userActivityName`. Returns the primary activity name author or specified user ID. Requires Presence intent.
 *   `$authorAvatar`: Returns the avatar URL of the command interaction author.
 *   `$authorID`: Returns the ID of the command interaction author.
-*   `$authorTag`: Returns the tag Username or Username#Discriminator of the command author.
+*   `$authorTag`: Returns the tag Username or UsernameDiscriminator of the command author.
 *   `$boostingSince[memberID?]`: Returns the timestamp ms when the member started boosting author or specified member ID. Empty if not boosting.
 *   `$canManageUser[targetUserID;managerMemberID?]`: Checks if manager defaults to bot can manage target user based on role hierarchy. Returns true or false.
 *   `$displayName[memberID?]`: Returns the display name nickname or username author or specified member ID.
@@ -216,7 +216,7 @@ This page lists the built-in functions available in Solara.js categorized for ea
 *   `$isVoiceConnected[memberID?]`: Checks if the member is connected to a voice channel author or specified member ID. Returns true or false.
 *   `$isVoiceDeafened[userID?]`: Checks if the user is locally deafened author or specified user ID. Returns true or false.
 *   `$isVoiceMuted[userID?]`: Checks if the user is locally muted author or specified user ID. Returns true or false.
-*   `$lowestRole[memberID?]`: Returns the ID of the lowest role excluding @everyone author or specified member ID.
+*   `$lowestRole[memberID?]`: Returns the ID of the lowest role excluding everyone author or specified member ID.
 *   `$memberAvatar[memberID?]`: Returns the server-specific avatar URL falls back to user avatar author or specified member ID.
 *   `$memberExists[userID]`: Alias for `$userExistsInGuild`. Checks if user ID is in the current guild. Returns true or false.
 *   `$memberFlags[memberID?]`: Returns semicolon-separated list of member flags author or specified member ID.
@@ -248,7 +248,7 @@ This page lists the built-in functions available in Solara.js categorized for ea
 *   `$userPermissions[scope?;memberID?;separator?]`: Returns list of member's permissions in context channel guild scope. Optional separator. Author or specified member ID.
 *   `$userRoles[memberID?;type?;separator?]`: Returns list of role IDs or names type: id name author or specified member ID. Optional separator.
 *   `$userStatus[userID?]`: Returns the presence status online idle etc author or specified user ID. Requires Presence intent.
-*   `$userTag[userID?]`: Returns the tag Username or Username#Discriminator author or specified user ID.
+*   `$userTag[userID?]`: Returns the tag Username or UsernameDiscriminator author or specified user ID.
 *   `$userVoiceChannelID[userID?]`: Returns the ID of the voice channel the user is in author or specified user ID. Empty if not in VC.
 
 ## Guild/Server Info
@@ -306,7 +306,7 @@ This page lists the built-in functions available in Solara.js categorized for ea
 *   `$channelParentObject[channelID?]`: Returns JSON string of channel's parent CategoryChannel object.
 *   `$channelPosition[channelID?]`: Returns the position of a channel.
 *   `$channelTopic[channelID?]`: Returns the topic of a text-based channel.
-*   `$channelType[channelID?]`: Returns the type name of a channel e.g. GUILD_TEXT.
+*   `$channelType[channelID?]`: Returns the type name of a channel e g GUILD TEXT.
 *   `$channelURL[channelID?]`: Returns the jump URL for a channel.
 *   `$createChannel[name;type?;parentID?;optionsJson?;reason?]`: Creates a channel. Optional type parent ID JSON options. Returns new channel ID. Requires Manage Channels.
 *   `$createThread[name;startMessageID?;type?;autoArchiveDuration?;optionsJson?;reason?]`: Creates a thread. Optional start message type archive duration JSON options. Returns new thread ID. Requires permissions.
@@ -337,7 +337,7 @@ This page lists the built-in functions available in Solara.js categorized for ea
 
 *   `$addRole[memberID;roleID;reason?]`: Adds a role to a member. Requires Manage Roles.
 *   `$canManageRole[roleID;memberID?]`: Checks if bot or member can manage a role based on hierarchy. Returns true false.
-*   `$compareRolePosition[roleID1;roleID2]`: Compares two roles' positions. Returns positive if role1>role2 negative if role1<role2 0 if equal.
+*   `$compareRolePosition[roleID1;roleID2]`: Compares two roles' positions. Returns positive if role1 greater role2 negative if role1 less role2 zero if equal.
 *   `$createRole[name;color?;hoist?;mentionable?;permissions?;iconURL?;unicodeEmoji?;reason?]`: Creates a role. Optional properties: color hoist mentionable permissions bitfield names icon emoji. Returns new role ID. Requires Manage Roles.
 *   `$deleteRole[roleID;reason?]`: Deletes a role. Requires Manage Roles.
 *   `$isHoisted[roleID]`: Checks if a role is hoisted displayed separately. Returns true false.
@@ -481,16 +481,16 @@ This page lists the built-in functions available in Solara.js categorized for ea
 *   `$min[num1;num2...]`: Returns the lowest number from a list.
 *   `$modulo[dividend;divisor]`: Returns the remainder of division.
 *   `$multi[num1;num2...]`: Calculates the product of numbers.
-*   `$ordinal[number]`: Returns the ordinal form 1st 2nd etc. Alias `$toOrdinal`.
-*   `$percent[value1;value2]`: Calculates percentage value1 is of value2.
+*   `$ordinal[number]`: Returns the ordinal form st nd etc. Alias `$toOrdinal`.
+*   `$percent[value1;value2]`: Calculates percentage value one is of value two.
 *   `$pi`: Alias for `$PI`.
 *   `$power[base;exponent]`: Calculates base to the exponent power.
 *   `$random[max]` or `$random[min;max]`: Returns random integer in range inclusive.
-*   `$randomFloat[min?;max?]`: Returns random float between min inclusive default 0 and max exclusive default 1.
+*   `$randomFloat[min?;max?]`: Returns random float between min inclusive default zero and max exclusive default one.
 *   `$randomHexColor`: Generates a random hex color code.
 *   `$round[number]`: Rounds number to the nearest integer.
 *   `$roundTo[number;decimalPlaces]`: Rounds number to specified decimal places.
-*   `$sign[number]`: Returns the sign of a number -1 0 1.
+*   `$sign[number]`: Returns the sign of a number minus one zero one.
 *   `$sqrt[number]`: Calculates the square root.
 *   `$sub[num1;num2...]`: Subtracts numbers sequentially.
 *   `$sum[num1;num2...]`: Calculates the sum of numbers.
@@ -501,8 +501,8 @@ This page lists the built-in functions available in Solara.js categorized for ea
 
 *   `$bold[text]`: Formats text as bold `**text**`.
 *   `$charCount[text;characterOrSubstring]`: Counts occurrences of a char substring in text.
-*   `$charAt[text;index]`: Returns character at specific index 0-based.
-*   `$charToCode[text;index?]`: Returns Unicode value of character at index default 0.
+*   `$charAt[text;index]`: Returns character at specific index zero based.
+*   `$charToCode[text;index?]`: Returns Unicode value of character at index default zero.
 *   `$codeBlock[text;language?]`: Formats text into a code block optional language.
 *   `$codeToChar[code1;code2...]`: Creates string from sequence of Unicode values.
 *   `$cropText[text;maxLength;endChars?]`: Truncates text optionally appending characters within limit.
@@ -511,7 +511,7 @@ This page lists the built-in functions available in Solara.js categorized for ea
 *   `$findNthOccurrence[text;search;occurrence]`: Finds index of the Nth occurrence of search string.
 *   `$hyperlink[text;url]`: Creates Markdown hyperlink `[text](url)`.
 *   `$includes[text;search]`: Checks if text contains search string. Returns true false.
-*   `$indexOf[text;searchValue;fromIndex?]`: Returns first index of search value optional start index. Returns -1 if not found.
+*   `$indexOf[text;searchValue;fromIndex?]`: Returns first index of search value optional start index. Returns minus one if not found.
 *   `$inlineCode[text]`: Formats text as inline code `` `text` ``.
 *   `$isNumeric[text]`: Checks if text contains only numeric digits. Returns true false.
 *   `$italic[text]`: Formats text as italic `*text*` or `_text_`.
@@ -524,16 +524,16 @@ This page lists the built-in functions available in Solara.js categorized for ea
 *   `$removeLinks[text]`: Attempts to remove URLs from text basic.
 *   `$repeatText[text;count]`: Repeats text a number of times.
 *   `$replaceAll[text;search;replace]`: Replaces all occurrences of search string with replacement.
-*   `$replaceText[text;search;replace;limit?]`: Replaces occurrences of search string optional replacement limit -1 for all.
+*   `$replaceText[text;search;replace;limit?]`: Replaces occurrences of search string optional replacement limit minus one for all.
 *   `$reverseText[text]`: Reverses the order of characters in text.
 *   `$sentenceCase[text]`: Converts text to sentence case basic.
-*   `$slice[text;startIndex;endIndex?]`: Extracts section of text using indices 0-based. Optional end index exclusive. Negative indices count from end.
+*   `$slice[text;startIndex;endIndex?]`: Extracts section of text using indices zero based. Optional end index exclusive. Negative indices count from end.
 *   `$spoiler[text]`: Formats text as spoiler `||text||`.
 *   `$startsWith[text;search]`: Checks if text starts with search string. Returns true false.
 *   `$strikethrough[text]`: Formats text as strikethrough `~~text~~`.
 *   `$substring[text;startIndex;endIndex?]`: Returns part of string between start inclusive and optional end exclusive indices.
 *   `$textSplit[text;separator?]`: Splits text by separator default ';'. Stores result for `$splitText`. Returns item count.
-*   `$splitText[index]`: Retrieves item by index 1-based from last `$textSplit` result.
+*   `$splitText[index]`: Retrieves item by index one based from last `$textSplit` result.
 *   `$titleCase[text]`: Converts text to title case basic.
 *   `$toLowercase[text]`: Converts text to lowercase.
 *   `$toUppercase[text]`: Converts text to uppercase.
@@ -547,24 +547,24 @@ This page lists the built-in functions available in Solara.js categorized for ea
 ## List/Array (Semicolon Separated)
 
 *   `$filterList[filterValue;item1;item2...]`: Returns items matching filterValue joined by ';'.
-*   `$findItem[searchItem;item1;item2...]`: Finds first index 1-based of searchItem. Returns -1 if not found.
-*   `$findLastItem[searchItem;item1;item2...]`: Finds last index 1-based of searchItem. Returns -1 if not found.
+*   `$findItem[searchItem;item1;item2...]`: Finds first index one based of searchItem. Returns minus one if not found.
+*   `$findLastItem[searchItem;item1;item2...]`: Finds last index one based of searchItem. Returns minus one if not found.
 *   `$itemCount[item1;item2...]`: Returns the total number of items. Alias: `$listLength`.
 *   `$joinText[separator;item1;item2...]`: Joins items with a separator.
 *   `$listChunk[chunkSize;item1;item2...]`: Splits list into chunks. Returns JSON array string of arrays.
 *   `$listContains[searchItem;item1;item2...]`: Checks if list contains searchItem. Returns true false. Alias `$ListContains`.
-*   `$listContainsAll[list1Items;list2Items]`: Checks if list1 contains all items from list2. Returns true false.
-*   `$listContainsAny[list1Items;list2Items]`: Checks if list1 contains any item from list2. Returns true false.
-*   `$listDifference[list1Items;list2Items]`: Returns items in list1 but not list2 joined by ';'.
+*   `$listContainsAll[list1Items;list2Items]`: Checks if list one contains all items from list two. Returns true false.
+*   `$listContainsAny[list1Items;list2Items]`: Checks if list one contains any item from list two. Returns true false.
+*   `$listDifference[list1Items;list2Items]`: Returns items in list one but not list two joined by ';'.
 *   `$listFlatten[list1;list2...]`: Flattens multiple lists into one joined by ';'.
 *   `$listGetRandom[count;item1;item2...]`: Returns random unique items from list joined by ';'.
-*   `$listInsert[index;itemToInsert;item1;item2...]`: Inserts item at index 1-based. Returns new list joined by ';'.
+*   `$listInsert[index;itemToInsert;item1;item2...]`: Inserts item at index one based. Returns new list joined by ';'.
 *   `$listIntersection[list1Items;list2Items]`: Returns items common to both lists joined by ';'.
-*   `$listItem[index;item1;item2...]`: Returns item at index 1-based.
+*   `$listItem[index;item1;item2...]`: Returns item at index one based.
 *   `$listLength[item1;item2...]`: Returns the total number of items. Alias for `$itemCount`.
 *   `$listRemove[itemToRemove;item1;item2...]`: Removes first occurrence of item. Returns new list joined by ';'.
 *   `$listRemoveAll[itemToRemove;item1;item2...]`: Removes all occurrences of item. Returns new list joined by ';'.
-*   `$listSlice[startIndex;endIndex?;item1;item2...]`: Returns slice of list from start index 1-based up to optional end index. Returns sliced list joined by ';'.
+*   `$listSlice[startIndex;endIndex?;item1;item2...]`: Returns slice of list from start index one based up to optional end index. Returns sliced list joined by ';'.
 *   `$listUnion[list1Items;list2Items]`: Returns unique items from both lists combined joined by ';'.
 *   `$popList[item1;item2...]`: Returns the last item from the list.
 *   `$removeContains[containsValue;item1;item2...]`: Returns list excluding items containing value joined by ';'.
@@ -578,22 +578,22 @@ This page lists the built-in functions available in Solara.js categorized for ea
 
 *   `$dateDiff[timestampMs1;timestampMs2]`: Calculates difference between two timestamps ms. Returns difference in ms.
 *   `$day[timestampMs?]`: Returns day of month UTC for timestamp default now.
-*   `$dayOfWeek[timestampMs?]`: Returns day of week UTC 0=Sun for timestamp default now.
+*   `$dayOfWeek[timestampMs?]`: Returns day of week UTC zero equals Sun for timestamp default now.
 *   `$dayOfYear[timestampMs?]`: Returns day of year UTC for timestamp default now.
 *   `$duration[ms]`: Formats milliseconds into readable duration string.
-*   `$formatDate[timestampMs?;optionsJson?;locale?]`: Formats timestamp using Intl.DateTimeFormat. Optional JSON options locale. Defaults to now en-US.
+*   `$formatDate[timestampMs?;optionsJson?;locale?]`: Formats timestamp using Intl DateTimeFormat. Optional JSON options locale. Defaults to now en US.
 *   `$getMilliseconds[timestampMs?]`: Returns millisecond part UTC of timestamp default now.
-*   `$hour[timestampMs?]`: Returns hour UTC 0-23 for timestamp default now.
+*   `$hour[timestampMs?]`: Returns hour UTC range zero twentythree for timestamp default now.
 *   `$isValidDate[dateString]`: Checks if date string is valid. Returns true false.
 *   `$minute[timestampMs?]`: Returns minute UTC for timestamp default now.
-*   `$month[timestampMs?]`: Returns month UTC 1-12 for timestamp default now.
+*   `$month[timestampMs?]`: Returns month UTC one twelve for timestamp default now.
 *   `$now`: Returns current Unix timestamp in milliseconds.
 *   `$parseDate[dateString]`: Parses date string to ms timestamp. Accuracy varies.
 *   `$second[timestampMs?]`: Returns second UTC for timestamp default now.
 *   `$timeSince[timestampMs]`: Returns readable duration since timestamp.
 *   `$timeStamp[style?;timestampMs?]`: Returns Discord timestamp string. Optional style t T d D f F R optional timestamp ms default now.
 *   `$timeUntil[timestampMs]`: Returns readable duration until timestamp.
-*   `$toISOString[timestampMs?]`: Formats timestamp as ISO 8601 string UTC. Default now.
+*   `$toISOString[timestampMs?]`: Formats timestamp as ISO standard string UTC. Default now.
 *   `$toUTCString[timestampMs?]`: Formats timestamp as readable UTC string. Default now.
 *   `$year[timestampMs?]`: Returns full year UTC for timestamp default now.
 
@@ -620,8 +620,8 @@ This page lists the built-in functions available in Solara.js categorized for ea
 
 ## Web & Encoding
 
-*   `$base64Decode[base64Text]`: Decodes Base64 text.
-*   `$base64Encode[text]`: Encodes text to Base64.
+*   `$base64Decode[base64Text]`: Decodes Base Sixty Four text.
+*   `$base64Encode[text]`: Encodes text to Base Sixty Four.
 *   `$htmlEntitiesDecode[text]`: Decodes common HTML entities.
 *   `$htmlEntitiesEncode[text]`: Encodes characters to HTML entities.
 *   `$httpContentType[url]`: Gets Content-Type header HEAD request. **[SECURITY RISK]**
@@ -665,7 +665,7 @@ This page lists the built-in functions available in Solara.js categorized for ea
 *   `$voiceQueueAdd[queryOrURL]`: Adds song URL to queue.
 *   `$voiceQueueClear`: Clears the song queue doesn't stop current song.
 *   `$voiceQueueList[limit?;separator?]`: Returns current queue as list of titles. Optional limit separator.
-*   `$voiceQueueRemove[index]`: Removes song from queue by index 1-based.
+*   `$voiceQueueRemove[index]`: Removes song from queue by index one based.
 *   `$voiceResume`: Resumes paused audio playback.
 *   `$voiceSetVolume[volume]`: Sets playback volume.
 *   `$voiceSkip`: Skips current song plays next in queue.
@@ -673,7 +673,7 @@ This page lists the built-in functions available in Solara.js categorized for ea
 
 ## Stage Instances
 
-*   `$createStageInstance[channelID;topic;privacyLevel?;sendStartNotification?;reason?]`: Creates stage instance. Optional privacy GUILD_ONLY PUBLIC notification. Requires permissions. **[Assumed Function]**
+*   `$createStageInstance[channelID;topic;privacyLevel?;sendStartNotification?;reason?]`: Creates stage instance. Optional privacy GUILD ONLY PUBLIC notification. Requires permissions. **[Assumed Function]**
 *   `$deleteStageInstance[channelID;reason?]`: Deletes stage instance. Requires permissions. **[Assumed Function]**
 *   `$modifyStageInstance[channelID;topic?;privacyLevel?;reason?]`: Modifies stage instance properties. Requires permissions. **[Assumed Function]**
 *   `$stageInstanceTopic[channelID;newTopic?]`: Gets or sets stage instance topic. Requires permissions. **[Assumed Function]**
@@ -749,7 +749,7 @@ This page lists the built-in functions available in Solara.js categorized for ea
 
 ## Giveaways
 
-*   `$giveaway[duration;winnerCount;prize;requiredRoleID?]`: Starts giveaway message. `duration` string e.g. `1h30m`. Optional required role. **[Requires giveaway system implementation]**
+*   `$giveaway[duration;winnerCount;prize;requiredRoleID?]`: Starts giveaway message using a duration string winner count and prize. Optional required role. **[Requires giveaway system implementation]**
 
 ## Canvas / Image Manipulation (Requires `npm install canvas`)
 
@@ -763,7 +763,7 @@ This page lists the built-in functions available in Solara.js categorized for ea
 *   `$fillRect[x;y;width;height]`: Draws filled rectangle using current `$fillStyle`.
 *   `$fillStyle[color]`: Sets fill color style hex rgb name gradient pattern.
 *   `$fillText[text;x;y;maxWidth?]`: Draws filled text using current style font. Optional max width.
-*   `$font[fontString]`: Sets font style using CSS string e.g. 'bold 40px Arial'. Requires font availability registration.
+*   `$font[fontString]`: Sets font style using CSS string e g 'bold 40px Arial'. Requires font availability registration.
 *   `$imageSize[imageVarName;property?]`: Returns dimensions width height of loaded image variable. Optional property width height.
 *   `$levelUpCard[username;oldLevel;newLevel;...options?]`: Generates Level Up card image. Requires options setup. **[Requires specific card generation setup]**
 *   `$loadImage[urlOrPath;variableName]`: Loads image from URL path stores as `variableName`. **[SECURITY RISK - OWNER ONLY]** If using file path.
