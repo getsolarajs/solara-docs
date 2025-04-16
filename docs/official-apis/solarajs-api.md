@@ -70,7 +70,7 @@ Returns more about the package.
 `https://solarajs-api.vercel.app/api/exists/?functionname=clientid`
 
 **Response:**
-```
+```json
 {"message":true}
 ```
 
