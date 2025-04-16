@@ -46,7 +46,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Official API's',
+      label: 'Official API\'s',
       items: [
         'official-apis/solarajs-api',
       ],
