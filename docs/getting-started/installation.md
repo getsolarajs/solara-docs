@@ -13,13 +13,13 @@ You can download Node.js from the official website: [https://nodejs.org/](https:
 Once Node.js is set up, you can install Solara.js and its essential peer dependency, Discord.js v14, using your preferred package manager (npm or yarn). Navigate to your project directory in your terminal and run one of the following commands:
 
 ```bash title="Using npm"
-npm install @getsolara/solara.js discord.js
+npm install @getsolara/solara.js 
 ```
 
 ```bash title="Using yarn"
-yarn add @getsolara/solara.js discord.js
+yarn add @getsolara/solara.js 
 ```
 
-This command installs both the `solara.js` framework and the required version of `discord.js`.
+This command installs both the `solara.js` framework and the required version of ``.
 
 That's it! You're now ready to start building your bot. Head over to the [Your First Bot](./first-bot) guide to get started.
