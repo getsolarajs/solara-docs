@@ -1,3 +1,4 @@
+---
 sidebar_position: 1
 title: Function List
 id: function-list
