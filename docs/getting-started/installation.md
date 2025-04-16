@@ -20,6 +20,6 @@ npm install @getsolara/solara.js
 yarn add @getsolara/solara.js 
 ```
 
-This command installs both the `solara.js` framework and the required version of ``.
+This command installs both the `solara.js` framework and the required version of `discord.js`.
 
 That's it! You're now ready to start building your bot. Head over to the [Your First Bot](./first-bot) guide to get started.
