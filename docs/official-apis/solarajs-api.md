@@ -3,7 +3,7 @@ sidebar_position: 1
 title: SolaraJS API
 ---
 
-# SolaraJS API 
+# SolaraJS API
 
 ---
 
@@ -23,7 +23,7 @@ Fetches detailed information about a specific SolaraJS function.
 
 **Request Format:**
 
-GET /api/?functionname=<function_name>
+`GET /api/?functionname=<function_name>`
 
 **Example:**
 
