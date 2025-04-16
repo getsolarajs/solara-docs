@@ -39,17 +39,17 @@ const sidebars = {
         'reference/function-list',
       ],
     },
-    {
-      type: 'doc',
-      id: 'changelog',
-      label: 'Changelog',
-    },
-    {
+     {
       type: 'category',
       label: 'Official APIs',
       items: [
         'official-apis/solarajs-api',
       ],
+    },
+    {
+      type: 'doc',
+      id: 'changelog',
+      label: 'Changelog',
     },
   ],
 };
