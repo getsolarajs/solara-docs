@@ -110,7 +110,7 @@ This page lists the built-in functions available in Solara.js categorized for ea
 *   `$addChannelSelectMenu[customID;placeholder;minValues?;maxValues?;channelTypesJson?;disabled?]`: Adds a channel select menu. Optional: min max values filter by channel types JSON array disable.
 *   `$addMentionableSelectMenu[customID;placeholder;minValues?;maxValues?;disabled?]`: Adds a user and role select menu. Optional: min max values disable.
 *   `$addRoleSelectMenu[customID;placeholder;minValues?;maxValues?;disabled?]`: Adds a role select menu. Optional: min max values disable.
-*   `$addSelectMenu[customID;placeholder;minValues?;maxValues?;disabled?]`: Starts building a string select menu. Add options using `$addSelectMenuOption`. Optional: min max values disable.
+*   `$addSelectMenu[type;customID;placeholder;minValues?;maxValues?;disabled?]`: Starts building a string select menu. Add options using `$addSelectMenuOption`. Optional: min max values disable. Types: user, string, role, mentionable.
 *   `$addSelectMenuOption[label;value;description?;emoji?;default?]`: Adds an option to the *most recently started string select menu*. Optional: description emoji mark as default selected. Alias: `$addSelectOption`.
 *   `$addUserSelectMenu[customID;placeholder;minValues?;maxValues?;disabled?]`: Adds a user select menu. Optional: min max values disable.
 *   `$getComponentData[customID]`: Retrieves JSON data for a component by customID from the last message. **[Not Implemented Reliably]**
