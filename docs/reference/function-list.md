@@ -688,7 +688,7 @@ This page lists the built-in functions available in Solara.js categorized for ea
 
 ## Guild Management
 
-*   `$createGuild[name;region?;iconURL?;...options?]`: Creates new guild where bot is owner. Optional settings. **[RATE LIMITED - DANGEROUS - OWNER ONLY]**
+*   `$createGuild[name;region?;iconURL?;verificationLevel?;defaultMessageNotifications?;explicitContentFilter?;systemChannelID?;rulesChannelID?]`: Creates new guild where bot is owner. Optional settings. **[RATE LIMITED - DANGEROUS - OWNER ONLY]**
 *   `$deleteGuild[guildID]`: Makes bot leave guild. **DELETES GUILD if bot is owner.** Use with extreme caution. **[DANGEROUS - OWNER ONLY]**
 
 ## Webhooks
@@ -751,7 +751,7 @@ This page lists the built-in functions available in Solara.js categorized for ea
 
 *   `$giveaway[duration;winnerCount;prize;requiredRoleID?]`: Starts giveaway message using a duration string winner count and prize. Optional required role. **[Requires giveaway system implementation]**
 
-## Canvas / Image Manipulation
+## Canvas / Image Manipulation (Requires `npm install canvas`)
 
 *   `$attachCanvas[fileName?;quality?;compressionLevel?]`: Attaches current canvas as file. Optional filename quality JPEG compression PNG.
 *   `$captchaCard[captchaKey;backgroundURL?;borderColor?;overlayOpacity?]`: Generates Captcha image using key from `$captchaKey`. Optional appearance settings. **[Requires setup]**
@@ -765,19 +765,19 @@ This page lists the built-in functions available in Solara.js categorized for ea
 *   `$fillText[text;x;y;maxWidth?]`: Draws filled text using current style font. Optional max width.
 *   `$font[fontString]`: Sets font style using CSS string e g 'bold 40px Arial'. Requires font availability registration.
 *   `$imageSize[imageVarName;property?]`: Returns dimensions width height of loaded image variable. Optional property width height.
-*   `$levelUpCard[username;oldLevel;newLevel;...options?]`: Generates Level Up card image. Requires options setup. **[Requires specific card generation setup]**
+*   `$levelUpCard[username;oldLevel;newLevel;avatarURL?;backgroundURL?;borderColor?;avatarBorderColor?;overlayOpacity?]`: Generates Level Up card image. Requires options setup. **[Requires specific card generation setup]**
 *   `$loadImage[urlOrPath;variableName]`: Loads image from URL path stores as `variableName`. **[SECURITY RISK - OWNER ONLY]** If using file path.
 *   `$measureText[text]`: Measures text width based on current font. Returns width.
-*   `$profileCard[userID;...options?]`: Generates profile card image. Requires options setup. **[Requires specific card generation setup]**
-*   `$rankCard[username;level;rank;currentXP;requiredXP;...options?]`: Generates rank card image. Requires options setup. **[Requires specific card generation setup]**
+*   `$profileCard[userID;borderColor?]`: Generates profile card image. Requires options setup. **[Requires specific card generation setup]**
+*   `$rankCard[username;level;rank;currentXP;requiredXP;avatarURL?;backgroundURL?;status?;borderColor?;progressBarColor?]`: Generates rank card image. Requires options setup. **[Requires specific card generation setup]**
 *   `$registerFont[fontPath;fontFamily]`: Registers custom font from local path for canvas use. **[SECURITY RISK - OWNER ONLY]**
-*   `$spotifyCard[title;author;album;imageURL;...options?]`: Generates Spotify card image. Requires options setup. **[Requires specific card generation setup]**
+*   `$spotifyCard[title;author;album;imageURL;startTimestampMs?;endTimestampMs?;blur?;overlayOpacity?]`: Generates Spotify card image. Requires options setup. **[Requires specific card generation setup]**
 *   `$strokeRect[x;y;width;height]`: Draws outlined rectangle using current `$strokeStyle`.
 *   `$strokeStyle[color]`: Sets stroke color style.
 *   `$strokeText[text;x;y;maxWidth?]`: Draws text outline using current style font. Optional max width.
 *   `$textAlign[alignment]`: Sets text alignment left right center start end.
 *   `$textBaseline[baseline]`: Sets vertical text baseline top middle bottom etc.
-*   `$welcomeCard[title;description;...options?]`: Generates welcome card image. Requires options setup. **[Requires specific card generation setup]**
+*   `$welcomeCard[title;description;avatarURL?;backgroundURL?;borderColor?;avatarBorderColor?;overlayOpacity?]`: Generates welcome card image. Requires options setup. **[Requires specific card generation setup]**
 
 ## External APIs / Miscellaneous
 
