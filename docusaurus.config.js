@@ -61,6 +61,12 @@ const config = {
             label: 'Documentation',
           },
           {
+            href: 'https://discord.gg/mkuh4bPng4',
+            position: 'right',
+            className: 'navbar-discord-link',
+            'aria-label': 'Discord server',
+          },
+          {
             href: 'https://github.com/getsolarajs/solara.js',
             position: 'right',
             className: 'navbar-github-link',
