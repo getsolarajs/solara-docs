@@ -1,9 +1,9 @@
 ---
 sidebar_position: 1
-title: SolaraJS API
+title: Solara.js API
 ---
 
-# SolaraJS API
+# Solara.js API
 
 ---
 
@@ -19,7 +19,7 @@ https://solarajs-api.vercel.app/api
 
 ### `GET ?functionname=`
 
-Fetches detailed information about a specific SolaraJS function.
+Fetches detailed information about a specific Solara.js function.
 
 **Request Format:**
 
@@ -44,7 +44,7 @@ Fetches detailed information about a specific SolaraJS function.
 
 ### GET /about
 
-Retrieves more about the SolaraJS package.
+Retrieves more about the Solara.js package.
 
 **Example:**
 
