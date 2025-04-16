@@ -16,7 +16,7 @@ Ensure you have Node.js installed. Create a new folder for your bot, navigate in
 mkdir my-solara-bot
 cd my-solara-bot
 npm init -y
-npm install @getsolara/solara.js discord.js
+npm install @getsolara/solara.js
 ```
 
 ## **2. Create `bot.js`**
