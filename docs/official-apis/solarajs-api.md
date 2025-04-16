@@ -61,6 +61,19 @@ Retrieves more about the Solara.js package.
 ```
 
 
+#### GET /exists/?functionname=
+
+Returns more about the package.
+
+**Example:**
+
+`https://solarajs-api.vercel.app/api/exists/?functionname=clientid`
+
+**Response:**
+```
+{"message":true}
+```
+
 ---
 
 ## Rate Limiting
