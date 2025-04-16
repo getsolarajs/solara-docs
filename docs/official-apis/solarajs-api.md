@@ -39,7 +39,8 @@ GET /api/?functionname=<function_name>
     "alias": "$botID"
   }
 }
-
+```
+---
 
 ### GET /about
 
