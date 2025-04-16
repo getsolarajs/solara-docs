@@ -44,6 +44,13 @@ const sidebars = {
       id: 'changelog',
       label: 'Changelog',
     },
+    {
+      type: 'category',
+      label: 'Official API's',
+      items: [
+        'official-apis/solarajs-api',
+      ],
+    },
   ],
 };
 
