@@ -17,7 +17,7 @@ https://solarajs-api.vercel.app/api
 
 ## Endpoints
 
-### `GET ?functionname=`
+### GET /functionname
 
 Fetches detailed information about a specific Solara.js function.
 
@@ -59,9 +59,9 @@ Retrieves more about the Solara.js package.
   }
 }
 ```
+---
 
-
-#### GET /exists/?functionname=
+### GET /exists/?functionname
 
 Returns more about the package.
 
