@@ -10,6 +10,9 @@ function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <header className={styles.heroBanner}>
+      <div className={styles.heroBackgroundPattern}></div>
+      <div className={styles.heroBackgroundBlur}></div>
+
       <div className={styles.heroContainer}>
         <div className={styles.heroContent}>
           <div className={styles.heroText}>
@@ -27,23 +30,24 @@ function HomepageHeader() {
               </Link>
               <Link
                 className={`button button--secondary button--lg ${styles.secondaryButton}`}
-                to="/docs/first-bot"> {/* Consider updating this link if needed */}
+                to="/docs/first-bot">
                 View Example
               </Link>
             </div>
           </div>
           <div className={styles.heroGraphic}>
-            <div className={styles.codeSnippet}>
-              <div className={styles.codeHeader}>
-                <span className={styles.filename}>bot.js</span>
-                <div className={styles.windowButtons}>
-                  <span></span>
-                  <span></span>
-                  <span></span>
+            <div className={styles.codeSnippetWrapper}>
+              <div className={styles.codeSnippet}>
+                <div className={styles.codeHeader}>
+                  <span className={styles.filename}>bot.js</span>
+                  <div className={styles.windowButtons}>
+                    <div className={styles.windowButton} style={{ backgroundColor: '#ff5f56' }}></div>
+                    <div className={styles.windowButton} style={{ backgroundColor: '#ffbd2e' }}></div>
+                    <div className={styles.windowButton} style={{ backgroundColor: '#27c93f' }}></div>
+                  </div>
                 </div>
-              </div>
-              <pre className={styles.codeContent}>
-                <code>{`const { SolaraClient } = require('@getsolara/solara.js');
+                <pre className={styles.codeContent}>
+                  <code>{`const { SolaraClient } = require('@getsolara/solara.js');
 const path = require('path');
 
 const bot = new SolaraClient({
@@ -62,26 +66,29 @@ const functionsPath = path.join(__dirname, 'functions');
 bot.loadFunctions(functionsPath);
 
 bot.on('ready', () => {
-    console.log(\`\${bot.user.tag} is online and ready to go!\`);
+    console.log(\`${bot.user.tag} is online and ready to go!\`);
 });
 
 bot.login();`}</code>
-              </pre>
+                </pre>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div className={styles.heroBackground}></div>
     </header>
   );
 }
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
+  const pageTitle = `Home | ${siteConfig.title}`;
+  const pageDescription = `Documentation for ${siteConfig.title}. ${siteConfig.tagline}`;
+
   return (
     <Layout
-      title="Home"
-      description={`Documentation for ${siteConfig.title}. ${siteConfig.tagline}`}>
+      title={pageTitle}
+      description={pageDescription}>
       <HomepageHeader />
       <main>
         <HomepageFeatures />
