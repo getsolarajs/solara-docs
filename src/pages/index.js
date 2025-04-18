@@ -65,9 +65,8 @@ bot.loadCommands(commandsPath);
 const functionsPath = path.join(__dirname, 'functions');
 bot.loadFunctions(functionsPath);
 
-// FIX: Escaped the template literal syntax inside the string
 bot.on('ready', () => {
-    console.log(\`\\${bot.user.tag} is online and ready to go!\`);
+    console.log(\`\\${bot.user.tag} is online and ready to go!\`); // <-- ENSURE THIS LINE IS CORRECT
 });
 
 bot.login();`}</code>
